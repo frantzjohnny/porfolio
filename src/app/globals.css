@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #080b12;
+  --secondary: #6f737a;
+  --light-gray: #f3f4f6;
+  --border: #e5e7eb;
+  --dark: #050812;
+  --dark-secondary: #10131b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #080b12;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Global Width System */
+.container-custom {
+  width: min(1280px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.container-wide {
+  width: min(1400px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.container-cta {
+  width: min(1100px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.container-editorial {
+  width: min(760px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.container-contact-hero {
+  width: min(900px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.container-contact-form {
+  width: min(760px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.container-faq {
+  width: min(860px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  .container-custom,
+  .container-wide,
+  .container-cta,
+  .container-editorial,
+  .container-contact-hero,
+  .container-contact-form,
+  .container-faq {
+    width: calc(100% - 40px);
+  }
+}
+
+/* Section Spacing System — Intentional whitespace breathing room */
+.hero-py {
+  padding-top: 150px;
+  padding-bottom: 110px;
+}
+
+.internal-hero-py {
+  padding-top: 140px;
+  padding-bottom: 80px;
+}
+
+.section-py {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.section-py-sm {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .hero-py {
+    padding-top: 120px;
+    padding-bottom: 72px;
+  }
+  .internal-hero-py {
+    padding-top: 120px;
+    padding-bottom: 64px;
+  }
+  .section-py {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  .section-py-sm {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+::selection {
+  background: #080b12;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #080b12;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+a,
+button {
+  transition: all 0.2s ease;
+}
+
+/* Prevent horizontal overflow */
+.overflow-clip {
+  overflow: clip;
+}
+
+/* Text balance for headings */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Custom animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
